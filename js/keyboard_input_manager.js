@@ -71,8 +71,10 @@ KeyboardInputManager.prototype.listen = function () {
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restartWithConfirmation);
+  this.bindButtonPress(".undo-button", this.undoWithConfirmation);    
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
-  this.bindButtonPress(".confirm-button", this.restart);
+  this.bindButtonPress(".undo-move-button", this.undoMove);
+  this.bindButtonPress(".confirm-button", this.restart);    
   this.bindButtonPress(".cancel-button", this.keepPlaying);
 
   // Respond to swipe events
@@ -129,6 +131,11 @@ KeyboardInputManager.prototype.listen = function () {
   });
 };
 
+KeyboardInputManager.prototype.undoMove = function (event) {
+  event.preventDefault();
+  this.emit("undoMove");
+};
+
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
@@ -137,6 +144,11 @@ KeyboardInputManager.prototype.restart = function (event) {
 KeyboardInputManager.prototype.restartWithConfirmation = function (event) {
   event.preventDefault();
   this.emit("restartWithConfirmation");
+};
+
+KeyboardInputManager.prototype.undoWithConfirmation = function (event) {
+  event.preventDefault();
+  this.emit("undoWithConfirmation");
 };
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {
