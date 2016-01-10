@@ -18,9 +18,7 @@ Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://gith
 
 ### Screenshot
 
-<p align="center">
-  ![](screenshots/screen01.png)
-</p>
+![](screenshots/screen01.png)
 
 That screenshot is fake, by the way. I never reached 2048 :smile:
 
