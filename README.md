@@ -5,6 +5,8 @@ Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
 
 The official app can also be found on the [Play Store](https://play.google.com/store/apps/details?id=com.gabrielecirulli.app2048) and [App Store!](https://itunes.apple.com/us/app/2048-by-gabriele-cirulli/id868076805)
 
+**This branch *undo-feature* implements a basic Undo button, that can revert the steps taken by the user indefinitely until the original start state is reached.**
+
 ### Contributions
 
  - [TimPetricola](https://github.com/TimPetricola) added best score storage
@@ -16,11 +18,9 @@ Many thanks to [rayhaanj](https://github.com/rayhaanj), [Mechazawa](https://gith
 
 ### Screenshot
 
-<p align="center">
-  <img src="http://pictures.gabrielecirulli.com/2048-20140309-234100.png" alt="Screenshot"/>
-</p>
+![](screenshots/screen01.png)
 
-That screenshot is fake, by the way. I never reached 2048 :smile:
+Shows the new "Undo Feature" too.
 
 ## Contributing
 Changes and improvements are more than welcome! Feel free to fork and open a pull request. Please make your changes in a specific branch and request to pull into `master`! If you can, please make sure the game fully works before sending the PR, as that will help speed up the process.

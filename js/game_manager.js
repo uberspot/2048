@@ -8,7 +8,9 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
+  this.inputManager.on("undoMove", this.undoMove.bind(this));  
   this.inputManager.on("restartWithConfirmation", this.restartWithConfirmation.bind(this));
+  this.inputManager.on("undoWithConfirmation", this.undoWithConfirmation.bind(this));  
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
   this.setup();
@@ -21,11 +23,44 @@ GameManager.prototype.restart = function () {
   this.setup();
 };
 
-// Restart the game after user confirmation
+// Undo the current move
+GameManager.prototype.undoMove = function () {
+  this.actuator.continueGame(); // Clear the game won/lost message
+    
+  if (this.storageManager.getLengthOfGameStatesStack() > 0) {
+    var previousState = this.storageManager.popGameState();
 
+    // Reload the game from a previous game if present
+    if (previousState) {
+      this.grid        = new Grid(previousState.grid.size,
+                                  previousState.grid.cells); // Reload grid
+      this.score       = previousState.score;
+      this.over        = previousState.over;
+      this.won         = previousState.won;
+      this.keepPlaying = previousState.keepPlaying;
+    }
+
+    // Manually Update the actuator
+    this.actuator.actuate(this.grid, {
+      score:      this.score,
+      over:       this.over,
+      won:        this.won,
+      bestScore:  this.storageManager.getBestScore(),
+      terminated: this.isGameTerminated(),
+      keepPlaying: this.keepPlaying
+    });
+  }
+};
+
+// Restart the game after user confirmation
 GameManager.prototype.restartWithConfirmation = function () {
     // Open confirm message
     this.actuator.promptRestart();
+};
+
+GameManager.prototype.undoWithConfirmation = function () {
+    // Open confirm message
+    this.actuator.promptUndo();
 };
 
 // Keep playing after winning (allows going over 2048)
@@ -95,6 +130,7 @@ GameManager.prototype.actuate = function () {
     this.storageManager.clearGameState();
   } else {
     this.storageManager.setGameState(this.serialize());
+    this.storageManager.pushGameState(this.serialize());            
   }
 
   this.actuator.actuate(this.grid, {

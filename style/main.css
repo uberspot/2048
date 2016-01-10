@@ -189,14 +189,14 @@ hr {
       height: 40px;
       line-height: 42px;
       margin-left: 9px; }
-      .game-container .game-message a.keep-playing-button, .game-container .game-message a.confirm-button, .game-container .game-message a.cancel-button  {
+      .game-container .game-message a.keep-playing-button, .game-container .game-message a.confirm-button, .game-container .game-message a.cancel-button, .game-container .game-message a.undo-move-button  {
         display: none; }
     .game-container .game-message.game-won {
       background: rgba(237, 194, 46, 0.5);
       color: #f9f6f2; }
       .game-container .game-message.game-won a.keep-playing-button {
         display: inline-block; }
-    .game-container .game-message.game-won, .game-container .game-message.game-over, .game-container .game-message.restart-game  {
+    .game-container .game-message.game-won, .game-container .game-message.game-over, .game-container .game-message.restart-game, .game-container .game-message.undo-move  {
       display: block; }
 
 .game-container .game-message.restart-game {
@@ -212,6 +212,20 @@ hr {
    display: inline-block; }
 .game-container .game-message.restart-game .lower a.retry-button {
    display: none; }
+
+.game-container .game-message.undo-move {
+   -webkit-animation: fade-in 400ms ease 100ms;
+   -moz-animation: fade-in 400ms ease 100ms;
+   animation: fade-in 400ms ease 100ms;
+   -webkit-animation-fill-mode: both;
+   -moz-animation-fill-mode: both;
+   animation-fill-mode: both; }
+.game-container .game-message.undo-move .lower {
+   margin-top: 85px; }
+.game-container .game-message.undo-move .lower a.undo-move-button, .game-container .game-message.undo-move .lower a.cancel-button {
+   display: inline-block; }
+.game-container .game-message.undo-move .lower a.retry-button {
+    display: none; }
 
 .grid-container {
   position: absolute;
@@ -500,7 +514,9 @@ hr {
 .game-intro {
   float: left;
   line-height: 42px;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  width: 285px;
+  font-size: 14px;}
 
 .restart-button {
   display: inline-block;
@@ -513,7 +529,24 @@ hr {
   line-height: 42px;
   display: block;
   text-align: center;
-  float: right; }
+  float: right;
+  margin-left: 5px;
+  font-size: 16px; }
+
+.undo-button {
+  display: inline-block;
+  background: #8f7a66;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #f9f6f2;
+  height: 40px;
+  line-height: 42px;
+  display: block;
+  text-align: center;
+  float: right;
+  margin-left: 5px;
+  font-size: 16px; }
 
 .game-explanation {
   margin-top: 10px; }
@@ -540,10 +573,10 @@ hr {
     min-width: 40px; }
 
   .heading {
-    margin-bottom: 10px; }
+    margin-bottom: 5px; }
 
   .game-intro {
-    width: 55%;
+    width: 100%;
     display: block;
     box-sizing: border-box;
     line-height: 1.65; }
@@ -553,10 +586,10 @@ hr {
     padding: 0;
     display: block;
     box-sizing: border-box;
-    margin-top: 2px; }
+    margin-top: 0px; }
 
   .game-container {
-    margin-top: 17px;
+    margin-top: 15px;
     position: relative;
     padding: 10px;
     cursor: default;
@@ -609,16 +642,23 @@ hr {
         height: 40px;
         line-height: 42px;
         margin-left: 9px; }
-        .game-container .game-message a.keep-playing-button, .game-container .game-message a.confirm-button, .game-container .game-message a.cancel-button {
+        .game-container .game-message a.keep-playing-button, .game-container .game-message a.confirm-button, .game-container .game-message a.cancel-button, .game-container .game-message a.undo-move-button {
           display: none; }
       .game-container .game-message.game-won {
         background: rgba(237, 194, 46, 0.5);
         color: #f9f6f2; }
         .game-container .game-message.game-won a.keep-playing-button {
           display: inline-block; }
-      .game-container .game-message.game-won, .game-container .game-message.game-over, .game-container .game-message.restart-game  {
+      .game-container .game-message.game-won, .game-container .game-message.game-over, .game-container .game-message.restart-game, .game-container .game-message.undo-move  {
         display: block; }
 .game-container .game-message.restart-game {
+ -webkit-animation: fade-in 400ms ease 100ms;
+ -moz-animation: fade-in 400ms ease 100ms;
+ animation: fade-in 400ms ease 100ms;
+ -webkit-animation-fill-mode: both;
+ -moz-animation-fill-mode: both;
+ animation-fill-mode: both; }
+.game-container .game-message.undo-move {
  -webkit-animation: fade-in 400ms ease 100ms;
  -moz-animation: fade-in 400ms ease 100ms;
  animation: fade-in 400ms ease 100ms;
@@ -631,6 +671,11 @@ hr {
   display: inline-block; }
 .game-container .game-message.restart-game .lower a.retry-button {
   display: none; }
+
+.game-container .game-message.undo-move .lower {
+  margin-top: 85px; }
+ .game-container .game-message.undo-move .lower a.undo-move-button, .game-container .game-message.undo-move .lower a.cancel-button {
+  display: inline-block; }
 
   .grid-container {
     position: absolute;

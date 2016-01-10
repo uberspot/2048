@@ -154,4 +154,11 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
   this.messageContainer.classList.remove("restart-game");
+  this.messageContainer.classList.remove("undo-move");
+};
+
+HTMLActuator.prototype.promptUndo = function () {
+  var message = "Undo the current move?";
+  this.messageContainer.classList.add("undo-move");
+  this.messageContainer.getElementsByTagName("p")[0].textContent = message;
 };
