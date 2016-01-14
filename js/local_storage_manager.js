@@ -94,6 +94,10 @@ LocalStorageManager.prototype.pushGameState = function (gameState) {
   var gameStatesStackJSON = this.storage.getItem(this.gameStatesStackKey);
   var gameStatesStack = gameStatesStackJSON ? JSON.parse(gameStatesStackJSON) : [ ];
 
+  if(gameStateStack.length > 50) {
+    gameStateStack.shift();
+  }
+  
   gameStatesStack.push(JSON.stringify(gameState));
 
   this.storage.setItem(this.gameStatesStackKey, JSON.stringify(gameStatesStack));
