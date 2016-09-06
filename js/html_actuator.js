@@ -144,6 +144,7 @@ HTMLActuator.prototype.message = function (won) {
 };
 
 HTMLActuator.prototype.promptRestart = function () {
+  this.clearMessage();
   var message = "Start a new game?";
   this.messageContainer.classList.add("restart-game");
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
@@ -158,6 +159,7 @@ HTMLActuator.prototype.clearMessage = function () {
 };
 
 HTMLActuator.prototype.promptUndo = function () {
+  this.clearMessage();
   var message = "Undo the current move?";
   this.messageContainer.classList.add("undo-move");
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
