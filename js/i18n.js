@@ -18,6 +18,9 @@ var Localizer = (function(lang) {
 		ok : 'OK',
 		cancel : 'Cancel',
 		start_a_new_game : 'Start a new game?',
+		undo_the_current_move : 'Undo the current move?',
+		you_win : 'You win!',
+		game_over : 'Game over!'
 	};
 
 	var localizedMsgs = {};
@@ -33,6 +36,9 @@ var Localizer = (function(lang) {
 			ok : 'ОК',
 			cancel : 'Отмена',
 			start_a_new_game : 'Начать новую игру?',
+			undo_the_current_move : 'Отменить текущий ход?',
+			you_win : 'Вы победили!',
+			game_over : 'Игра закончена!'
 		};
 		break;
 	}
