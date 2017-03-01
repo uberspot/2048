@@ -22,7 +22,7 @@ var Localizer = (function(lang) {
 	};
 
 	var localizedMsgs = {};
-	
+
 	this.lang = lang || 'en';
 
 	switch (this.lang) {
@@ -32,13 +32,28 @@ var Localizer = (function(lang) {
 			new_game : 'Новая игра',
 			undo : 'Отменить ход',
 			keep_going : 'Продолжайте',
-			try_again : 'Попытаться ещё раз',
+			try_again : 'Попробовать ещё раз',
 			ok : 'ОК',
 			cancel : 'Отмена',
 			start_a_new_game : 'Начать новую игру?',
 			undo_the_current_move : 'Отменить текущий ход?',
 			you_win : 'Вы победили!',
 			game_over : 'Игра закончена!'
+		};
+		break;
+	case 'uk':
+		localizedMsgs = {
+			intro : 'Об\'єднуйте числа і отримаєте <strong>2048!</strong>',
+			new_game : 'Нова гра',
+			undo : 'Скасувати хід',
+			keep_going : 'Продовжуйте',
+			try_again : 'Спробувати ще раз',
+			ok : 'ОК',
+			cancel : 'Відміна',
+			start_a_new_game : 'Почати нову гру?',
+			undo_the_current_move : 'Скасувати поточний хід?',
+			you_win : 'Ви виграли!',
+			game_over : 'Гра завершена!'
 		};
 		break;
 	}
