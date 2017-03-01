@@ -17,6 +17,7 @@
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
+  <script src="js/i18n.js"></script>
   <div class="container">
     <div class="heading">
       <h1 class="title">2048</h1>
@@ -30,20 +31,20 @@
       <div id="night" style="padding:10px;">
             <a id="nightbtn"><img src="style/night.png"></a>
       </div>
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
-      <a class="undo-button">Undo</a>      
+      <p class="game-intro"><script>document.write(i18n.get('intro'))</script></p>
+      <a class="restart-button"><script>document.write(i18n.get('new_game'))</script></a>
+      <a class="undo-button"><script>document.write(i18n.get('undo'))</script></a>      
     </div>
 
     <div class="game-container">
       <div class="game-message">
         <p></p>
         <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
-          <a class="confirm-button">OK</a>
-          <a class="undo-move-button">Undo</a>          
-          <a class="cancel-button">Cancel</a>
+	        <a class="keep-playing-button"><script>document.write(i18n.get('keep_going'))</script></a>
+          <a class="retry-button"><script>document.write(i18n.get('try_again'))</script></a>
+          <a class="confirm-button"><script>document.write(i18n.get('ok'))</script></a>
+          <a class="undo-move-button"><script>document.write(i18n.get('undo'))</script></a>          
+          <a class="cancel-button"><script>document.write(i18n.get('cancel'))</script></a>
         </div>
       </div>
 

@@ -137,7 +137,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var message = won ? i18n.get('you_win') : i18n.get('game_over');
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
@@ -145,7 +145,7 @@ HTMLActuator.prototype.message = function (won) {
 
 HTMLActuator.prototype.promptRestart = function () {
   this.clearMessage();
-  var message = "Start a new game?";
+  var message = i18n.get('start_a_new_game');
   this.messageContainer.classList.add("restart-game");
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
 };
@@ -160,7 +160,7 @@ HTMLActuator.prototype.clearMessage = function () {
 
 HTMLActuator.prototype.promptUndo = function () {
   this.clearMessage();
-  var message = "Undo the current move?";
+  var message = i18n.get('undo_the_current_move');
   this.messageContainer.classList.add("undo-move");
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
 };

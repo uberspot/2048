@@ -1,1 +1,5 @@
 .sass-cache/
+
+# Eclipse project files
+.project
+.settings/
