@@ -7,8 +7,6 @@
 'use strict';
 
 var Localizer = (function(lang) {
-	var locale = lang || 'en';
-
 	var defaultMsgs = {
 		intro : 'Join the numbers and get to the <strong>2048 tile!</strong>',
 		new_game : 'New Game',
@@ -24,8 +22,10 @@ var Localizer = (function(lang) {
 	};
 
 	var localizedMsgs = {};
+	
+	this.lang = lang || 'en';
 
-	switch (locale) {
+	switch (this.lang) {
 	case 'ru':
 		localizedMsgs = {
 			intro : 'Объединяйте числа и получите <strong>2048!</strong>',
