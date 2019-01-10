@@ -70,12 +70,16 @@ KeyboardInputManager.prototype.listen = function () {
 
   // Respond to button presses
   this.bindButtonPress(".retry-button", this.restart);
-  this.bindButtonPress(".restart-button", this.restart);
+  this.bindButtonPress(".restart-button", this.restartWithConfirmation);
+  this.bindButtonPress(".undo-button", this.undoWithConfirmation);    
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
+  this.bindButtonPress(".undo-move-button", this.undoMove);
+  this.bindButtonPress(".confirm-button", this.restart);    
+  this.bindButtonPress(".cancel-button", this.keepPlaying);
 
   // Respond to swipe events
   var touchStartClientX, touchStartClientY;
-  var gameContainer = document.getElementsByClassName("game-container")[0];
+  var gameContainer = document.getElementsByClassName("container")[0];
 
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||
@@ -127,9 +131,24 @@ KeyboardInputManager.prototype.listen = function () {
   });
 };
 
+KeyboardInputManager.prototype.undoMove = function (event) {
+  event.preventDefault();
+  this.emit("undoMove");
+};
+
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
+};
+
+KeyboardInputManager.prototype.restartWithConfirmation = function (event) {
+  event.preventDefault();
+  this.emit("restartWithConfirmation");
+};
+
+KeyboardInputManager.prototype.undoWithConfirmation = function (event) {
+  event.preventDefault();
+  this.emit("undoWithConfirmation");
 };
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {
