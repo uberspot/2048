@@ -83,7 +83,7 @@ KeyboardInputManager.prototype.listen = function () {
 
   gameContainer.addEventListener(this.eventTouchstart, function (event) {
     if ((!window.navigator.msPointerEnabled && event.touches.length > 1) ||
-        event.targetTouches > 1) {
+        event.targetTouches.length > 1) {
       return; // Ignore if touching with more than 1 finger
     }
 
@@ -104,7 +104,7 @@ KeyboardInputManager.prototype.listen = function () {
 
   gameContainer.addEventListener(this.eventTouchend, function (event) {
     if ((!window.navigator.msPointerEnabled && event.touches.length > 0) ||
-        event.targetTouches > 0) {
+        event.targetTouches.length > 0) {
       return; // Ignore if still touching with one or more fingers
     }
 
