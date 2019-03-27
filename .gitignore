@@ -3,3 +3,6 @@
 # Eclipse project files
 .project
 .settings/
+
+# Mac OS Finder folder data
+.DS_Store
