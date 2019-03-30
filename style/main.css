@@ -129,6 +129,11 @@ hr {
     opacity: 0; }
   100% {
     opacity: 1; } }
+#night {
+  float: left;
+  padding: 7px;
+  margin-top: 10px; }
+
 .game-container {
   margin-top: 10px;
   position: relative;
@@ -526,8 +531,8 @@ hr {
   clear: both; }
 
 .game-intro {
-  float: left;
   line-height: 42px;
+  margin-top: 5px;
   margin-bottom: 0;
   width: 285px;
   font-size: 14px; }
@@ -545,6 +550,7 @@ hr {
   text-align: center;
   float: right;
   margin-left: 5px;
+  margin-top: 10px;
   font-size: 16px; }
 
 .game-explanation {
@@ -569,7 +575,8 @@ hr {
   .score-container, .best-container {
     margin-top: 0;
     padding: 15px 10px;
-    min-width: 40px; }
+    min-width: 40px;
+    font-size: 16px; }
 
   .heading {
     margin-bottom: 5px; }
@@ -584,8 +591,7 @@ hr {
     width: 42%;
     padding: 0;
     display: block;
-    box-sizing: border-box;
-    margin-top: 0px; }
+    box-sizing: border-box; }
 
   .game-container {
     margin-top: 15px;

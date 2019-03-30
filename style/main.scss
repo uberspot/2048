@@ -164,6 +164,12 @@ hr {
   line-height: 42px;
 }
 
+#night {
+  float: left;
+  padding: 7px;
+  margin-top: 10px;
+}
+
 // Game field mixin used to render CSS at different width
 @mixin game-field {
   .game-container {
@@ -482,8 +488,8 @@ hr {
 }
 
 .game-intro {
-  float: left;
   line-height: 42px;
+  margin-top: 5px;
   margin-bottom: 0;
   width: 285px;
   font-size: 14px;
@@ -495,6 +501,7 @@ hr {
   text-align: center;
   float: right;
   margin-left: 5px;
+  margin-top: 10px;
   font-size: 16px;
 }
 
@@ -533,6 +540,7 @@ hr {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px;
+    font-size: 16px;
   }
 
   .heading {
@@ -552,7 +560,6 @@ hr {
     padding: 0;
     display: block;
     box-sizing: border-box;
-    margin-top: 0px;
   }
 
   // Render the game field at the right width
