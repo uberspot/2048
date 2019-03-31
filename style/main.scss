@@ -9,14 +9,14 @@ $tile-border-radius: 3px;
 
 $mobile-threshold: $field-width + 20px;
 
-$text-color: #776E65;
+$text-color: #776e65;
 $bright-text-color: #f9f6f2;
 
 $tile-color: #eee4da;
 $tile-gold-color: #edc22e;
 $tile-gold-glow-color: lighten($tile-gold-color, 15%);
 
-$game-container-margin-top: 40px;
+$game-container-margin-top: 10px;
 $game-container-background: #bbada0;
 
 $transition-speed: 100ms;
@@ -31,16 +31,12 @@ html, body {
   font-size: 18px;
 }
 
-body {
-  margin: 80px 0;
-}
-
 .heading {
   @include clearfix;
 }
 
 h1.title {
-  font-size: 80px;
+  font-size: 72px;
   font-weight: bold;
   margin: 0;
   display: block;
@@ -70,7 +66,7 @@ h1.title {
   position: relative;
   display: inline-block;
   background: $game-container-background;
-  padding: 15px 25px;
+  padding: 12px 20px;
   font-size: $height;
   height: $height;
   line-height: $height + 22px;
@@ -116,7 +112,7 @@ h1.title {
 
 p {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   line-height: 1.65;
 }
 
@@ -137,8 +133,8 @@ strong {
 hr {
   border: none;
   border-bottom: 1px solid lighten($text-color, 40%);
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .container {
@@ -166,6 +162,12 @@ hr {
   color: $bright-text-color;
   height: 40px;
   line-height: 42px;
+}
+
+#night {
+  float: left;
+  padding: 7px;
+  margin-top: 10px;
 }
 
 // Game field mixin used to render CSS at different width
@@ -227,9 +229,9 @@ hr {
         margin-left: 9px;
         // margin-top: 59px;
 
-	&.keep-playing-button {
-	  display: none;
-	}
+        &.keep-playing-button, &.confirm-button, &.cancel-button, &.undo-move-button {
+          display: none;
+        }
       }
 
       @include animation(fade-in 800ms ease $transition-speed * 12);
@@ -239,14 +241,42 @@ hr {
         background: rgba($tile-gold-color, .5);
         color: $bright-text-color;
 
-	a.keep-playing-button {
-	  display: inline-block;
-	}
+        a.keep-playing-button {
+          display: inline-block;
+        }
       }
 
-      &.game-won, &.game-over {
+      &.game-won, &.game-over, &.restart-game, &.undo-move {
         display: block;
       }
+      
+      &.restart-game {
+        -webkit-animation: fade-in 400ms ease 100ms;
+        -moz-animation: fade-in 400ms ease 100ms;
+        animation: fade-in 400ms ease 100ms;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        animation-fill-mode: both; }
+      &.restart-game .lower {
+        margin-top: 85px; }
+      &.restart-game .lower a.confirm-button, &.restart-game .lower a.cancel-button {
+        display: inline-block; }
+      &.restart-game .lower a.retry-button {
+        display: none; }
+
+      &.undo-move {
+        -webkit-animation: fade-in 400ms ease 100ms;
+        -moz-animation: fade-in 400ms ease 100ms;
+        animation: fade-in 400ms ease 100ms;
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        animation-fill-mode: both; }
+      &.undo-move .lower {
+        margin-top: 85px; }
+      &.undo-move .lower a.undo-move-button, &.undo-move .lower a.cancel-button {
+        display: inline-block; }
+      &.undo-move .lower a.retry-button {
+         display: none; }
     }
   }
 
@@ -458,30 +488,34 @@ hr {
 }
 
 .game-intro {
-  float: left;
   line-height: 42px;
+  margin-top: 5px;
   margin-bottom: 0;
+  width: 285px;
+  font-size: 14px;
 }
 
-.restart-button {
+.restart-button, .undo-button {
   @include button;
   display: block;
   text-align: center;
   float: right;
+  margin-left: 5px;
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 .game-explanation {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 @include smaller($mobile-threshold) {
   // Redefine variables for smaller screens
-  $field-width: 280px;
-  $grid-spacing: 10px;
-  $grid-row-cells: 4;
-  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells;
-  $tile-border-radius: 3px;
-  $game-container-margin-top: 17px;
+  $field-width: 280px !global;
+  $grid-spacing: 10px !global;
+  $tile-size: ($field-width - $grid-spacing * ($grid-row-cells + 1)) / $grid-row-cells !global;
+  $tile-border-radius: 3px !global;
+  $game-container-margin-top: 15px !global;
 
   html, body {
     font-size: 15px;
@@ -506,15 +540,16 @@ hr {
     margin-top: 0;
     padding: 15px 10px;
     min-width: 40px;
+    font-size: 16px;
   }
 
   .heading {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   // Show intro and restart button side by side
   .game-intro {
-    width: 55%;
+    width: 100%;
     display: block;
     box-sizing: border-box;
     line-height: 1.65;
@@ -525,7 +560,6 @@ hr {
     padding: 0;
     display: block;
     box-sizing: border-box;
-    margin-top: 2px;
   }
 
   // Render the game field at the right width
