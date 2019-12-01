@@ -23,7 +23,7 @@ var Localizer = (function(lang) {
 
 	var localizedMsgs = {};
 
-	this.lang = lang || 'en';
+	this.lang = lang || navigator.language || 'en';
 
 	switch (this.lang) {
 	case 'ru':
