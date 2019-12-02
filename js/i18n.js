@@ -23,7 +23,7 @@ var Localizer = (function(lang) {
 
 	var localizedMsgs = {};
 
-	this.lang = lang || 'en';
+	this.lang = lang || navigator.language || 'en';
 
 	switch (this.lang) {
 	case 'ru':
@@ -54,6 +54,21 @@ var Localizer = (function(lang) {
 			undo_the_current_move : 'Скасувати поточний хід?',
 			you_win : 'Ви виграли!',
 			game_over : 'Гра завершена!'
+		};
+		break;
+	case 'de':
+		localizedMsgs = {
+			intro : 'Verbinde Zahlen &amp; schaffe die <strong>2048 Kachel!</strong>',
+			new_game : 'Neues Spiel',
+			undo : 'R&uuml;ck.',
+			keep_going : 'Weitermachen',
+			try_again : 'Erneut versuchen',
+			ok : 'OK',
+			cancel : 'Abbrechen',
+			start_a_new_game : 'Neues Spiel beginnen?',
+			undo_the_current_move : 'Zug rückgängig machen?',
+			you_win : 'Sieg!',
+			game_over : 'Game over!'
 		};
 		break;
 	}
