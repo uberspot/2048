@@ -569,8 +569,11 @@ hr {
     margin-top: 15px; }
 
   .container {
-    width: 280px;
-    margin: 0 auto; }
+     transform: scale(1.1);
+     transform-origin: 0 0;
+     position: absolute;
+     margin: 0 auto;
+     width: 280px;}
 
   .score-container, .best-container {
     margin-top: 0;
